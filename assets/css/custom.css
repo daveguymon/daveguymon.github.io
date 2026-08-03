@@ -1,0 +1,36 @@
+.collection-nav {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.collection-nav .view {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #333;
+}
+
+.collection-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.collection-nav li {
+  margin-bottom: 0.6rem;
+}
+
+.collection-nav a {
+  color: #267CB9;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(38, 124, 185, 0.35);
+}
+
+.collection-nav a:hover,
+.collection-nav a:focus {
+  color: #069;
+  border-bottom-color: transparent;
+}
