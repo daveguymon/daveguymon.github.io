@@ -3,15 +3,6 @@ layout: default
 title: Resume
 permalink: /
 ---
-# Dave Guymon
-
-<a href="mailto:delivertodave@duck.com">
-  delivertodave@duck.com
-</a>
-| 
-<a href="https://linkedin.com/in/daveguymon" target="_blank" rel="noopener">
-  linkedin.com/in/daveguymon
-</a>
 
 ## Professional Summary
 
