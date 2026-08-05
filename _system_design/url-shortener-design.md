@@ -7,7 +7,7 @@ permalink: /system-design/url-shortener/
 
 **One-line outcome:** A URL shortening service like TinyURL that creates shorter aliases for long URLs. 
 
-### 1) Problem & Requirements (the “why”)
+### 1) Problem & Requirements
 
 **Functional:**  
 - Given a long URL, the service returns a short link.
