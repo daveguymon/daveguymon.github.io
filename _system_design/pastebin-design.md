@@ -107,16 +107,16 @@ getPaste(pasteId)
 ### 6) Key Tradeoffs
 
 - **Decision:** Polyglot persistence
-    **Why:** User data has a predictable schema. So I opted for a relational database there. Pastes are subject to high read traffic. NoSQL enables lower latency for that.
-    **Impact:** Need to store userId from users table in pastes documents.
+    - **Why:** User data has a predictable schema. So I opted for a relational database there. Pastes are subject to high read traffic. NoSQL enables lower latency for that.
+    - **Impact:** Need to store userId from users table in pastes documents.
 
 - **Decision:** Rate limiting paste writes
-    **Why:** Mitigating write abuse
-    **Impact:** No single user should be able to overwhelm the Text Upload Service/Paste Write DB
+    - **Why:** Mitigating write abuse
+    - **Impact:** No single user should be able to overwhelm the Text Upload Service/Paste Write DB
 
 - **Decision:** Expiration sweeper as a background job
-    **Why:** Since pastes require expiration values, DB hygiene can be achieved by running the sweeper on a predictable schedule at lower traffic times
-    **Impact:** Avoids unnecessary storage bloat and associated costs
+    - **Why:** Since pastes require expiration values, DB hygiene can be achieved by running the sweeper on a predictable schedule at lower traffic times
+    - **Impact:** Avoids unnecessary storage bloat and associated costs
 
 ### 7) Validation
 
