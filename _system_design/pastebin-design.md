@@ -5,7 +5,7 @@ permalink: /system-design/pastebin/
 ---
 ## System Design Scenario: Pastebin
 
-**One-line outcome:** Enable users to store plain text or images over the Internet and generate unique URLs to access the uploaded data.
+**One-line outcome:** Enable users to store plain text over the Internet and generate unique URLs to access the uploaded data.
 
 ### 1) Problem & Requirements
 
@@ -43,6 +43,16 @@ permalink: /system-design/pastebin/
 
 **Entities & relationships:** User accounts (SQL) and Pastes (NoSQL/Document Storage). Paste documents will include a user id for authorship attribution.
 
+**API:**
+
+```
+createPaste(userId, paste_content, paste_name, created_at, expires_at=None, custom_Url=None)
+```
+
+```
+getPaste(pasteId)
+```
+
 **Storage choices:**
 - User account data stored in a SQL database
 - Paste data stored in a NoSQL document storage database
@@ -56,7 +66,7 @@ permalink: /system-design/pastebin/
 
 **Sequence:**  
 0. User authenticates to access pastes
-1. User uploads text blobs as paste content
+1. User uploads text blobs and metadata as paste content
 2. Unique CSPRNG URL-safe strings are generated for each upload
 3. Paste content + unique URL-safe strings stored in NoSQL primary db
 4. Primary DB propogates writes to read-replicas
@@ -78,23 +88,35 @@ permalink: /system-design/pastebin/
 ### 5) Scalability & Reliability
 
 **Scaling plan:**
+- Horizontal scaling of NoSQL dbs via consistent hashing
 
 **SLO/monitoring:**
-
+- **Availability SLO:** 99.9% uptime (four 9s target for read paths)
+- **Latency SLO:** P99 latency < 200ms for reads, P99 < 500ms for writes
+- **Durability SLO:** Zero data loss; write replication to >= 2 replicas before acknowledgment
+- **Key metrics to monitor:**
+    - API endpoint response times (read/write separately)
+    - Database replication lag
+    - Cache hit ratio
+    - Expired paste cleanup job success rate
+    - Rate limiter reject rate
+    - URL collision frequency
+    - CDN cache hit ratio
+    - Custom URL uniqueness constraint violations
 
 ### 6) Key Tradeoffs
 
-- **Decision:** 
-    **Why:** 
-    **Impact:**
+- **Decision:** Polyglot persistence
+    **Why:** User data has a predictable schema. So I opted for a relational database there. Pastes are subject to high read traffic. NoSQL enables lower latency for that.
+    **Impact:** Need to store userId from users table in pastes documents.
 
-- **Decision:**
-    **Why:** 
-    **Impact:** 
+- **Decision:** Rate limiting paste writes
+    **Why:** Mitigating write abuse
+    **Impact:** No single user should be able to overwhelm the Text Upload Service/Paste Write DB
 
-- **Decision:**
-    **Why:**  
-    **Impact:** 
+- **Decision:** Expiration sweeper as a background job
+    **Why:** Since pastes require expiration values, DB hygiene can be achieved by running the sweeper on a predictable schedule at lower traffic times
+    **Impact:** Avoids unnecessary storage bloat and associated costs
 
 ### 7) Validation
 
@@ -107,7 +129,7 @@ permalink: /system-design/pastebin/
 - 1.5 MB per second out
 
 **Assumptions:**
-- Every read downloads the entire 512 KB.
+- Every read downloads the entire 512 KB
 - Default paste expiration value
 
 ### 8) What I’d Improve Next
