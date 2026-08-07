@@ -44,7 +44,7 @@ permalink: /system-design/instagram/
 - Newsfeed service
 - Caching + CDN
 
-**Key idea / tradeoff:**
+**Key idea / tradeoff:** Combining relational storage for image metadata with object storage for image byte data for improved latency.
 
 ### 3) Data Model & Storage
 
@@ -66,23 +66,43 @@ permalink: /system-design/instagram/
 - User relationships in a graph DB
 
 **Consistency strategy:**
--
+- Eventual consistency using semi-synchronous replication
 
 ### 4) Request Flow
 
 **Sequence:**  
-1. 
+1. Authenticated user uploads an image and title
+2. The image upload service processes the image
+3. The image and metadata are published to a message bus
+4. Consumers store image byte data to an object store followed by storing image metadata to a transactional db
+5. Users follow other users in order to see their images
+6. User feeds are generated and stored with timestamps
+7. Long-polling is used for feed updates
 
 **Where latency is controlled:**
+- Geographically distributed CDNs
+- Multiple API gateways
+- CQRS for read and write paths
+- Service-based caching for reads
+- Message queing for image uploads
+- Search indexing for images
+- Database sharding
 
 **Failure handling:**
+- Retries with exponential backoff
+- Circuit breakers
+- Dead letter queues for poison inputs
+- Backup/replication of all services and databases
 
 ### 5) Scalability & Reliability
 
 **Scaling plan:**
 
 **SLO/monitoring:**
-
+1. Feed Generation Latency (p99): ≤ 200 ms for News Feed generation to end users, measured over a 28-day rolling window.
+2. Upload Availability: 99.95% availability for the image upload service over a rolling 28-day window.
+3. Photo View Availability: 99.99% availability for retrieving and displaying photos (reads) over a rolling 28-day window, including CDN and object storage.
+4. Data Durability: 99.9999% (six nines) durability of uploaded photos over 1 year; no user-uploaded photo should be lost due to system failure.
 
 ### 6) Key Tradeoffs
 
@@ -116,12 +136,16 @@ permalink: /system-design/instagram/
 - 5-year Storage (with Replication): 250 PB
 
 **Assumptions:**  
-- 
+- User must authenticate to use the system
+- There may be hot spot accounts that will generate significant follows compared to regular users
 
 ### 8) What I’d Improve Next
 
 **Next iteration:**  
-- 
+- Image deletion
+- Feed generation algorithm for engagement optimization
+- Public/private photo viewing
 
 **Risks to revisit:**  
-- 
+- Location of caches
+- Message consumer ordering (URL from object store required for image metadata record)
