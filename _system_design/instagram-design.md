@@ -110,16 +110,16 @@ permalink: /system-design/instagram/
 ### 6) Key Tradeoffs
 
 - **Decision:** Polyglot persistence for storing image data
-    **Why:** Object storage better suited for image byte data, while relational storage appropriate for image metadata.
-    **Impact:** Object storage's flat architecture offers expansive and cost-effective scalability
+    - **Why:** Object storage better suited for image byte data, while relational storage appropriate for image metadata.
+    - **Impact:** Object storage's flat architecture offers expansive and cost-effective scalability
 
 - **Decision:** Dual approach to feed generation
-    **Why:** Some users may generate a massive amount of followers compared to regular users
-    **Impact:** Utilizing push (fanout-on-write) and pull (fanout-on-read) methods for high-follower and regular users avoids excessive computational overhead on the read-path
+    - **Why:** Some users may generate a massive amount of followers compared to regular users
+    - **Impact:** Utilizing push (fanout-on-write) and pull (fanout-on-read) methods for high-follower and regular users avoids excessive computational overhead on the read-path
 
 - **Decision:** Reliance on geographically-distributed Content Delivery Networks
-    **Why:** Users want to share and view photos in near-real time
-    **Impact:** Caching content closer to users decreases the distance and time required by requests.
+    - **Why:** Users want to share and view photos in near-real time
+    - **Impact:** Caching content closer to users decreases the distance and time required by requests.
 
 ### 7) Validation
 
