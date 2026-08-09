@@ -97,6 +97,9 @@ permalink: /system-design/instagram/
 ### 5) Scalability & Reliability
 
 **Scaling plan:**
+- Cloud-based object storage for images scales efficiently
+- Consistent hashing sharding of image metadata DBs (shard key: `imageId`)
+- Message bus for image upload job processing
 
 **SLO/monitoring:**
 1. Feed Generation Latency (p99): ≤ 200 ms for News Feed generation to end users, measured over a 28-day rolling window.
@@ -106,17 +109,17 @@ permalink: /system-design/instagram/
 
 ### 6) Key Tradeoffs
 
-- **Decision:** 
-    **Why:** 
-    **Impact:**
+- **Decision:** Polyglot persistence for storing image data
+    **Why:** Object storage better suited for image byte data, while relational storage appropriate for image metadata.
+    **Impact:** Object storage's flat architecture offers expansive and cost-effective scalability
 
-- **Decision:**
-    **Why:** 
-    **Impact:** 
+- **Decision:** Dual approach to feed generation
+    **Why:** Some users may generate a massive amount of followers compared to regular users
+    **Impact:** Utilizing push (fanout-on-write) and pull (fanout-on-read) methods for high-follower and regular users avoids excessive computational overhead on the read-path
 
-- **Decision:**
-    **Why:**  
-    **Impact:** 
+- **Decision:** Reliance on geographically-distributed Content Delivery Networks
+    **Why:** Users want to share and view photos in near-real time
+    **Impact:** Caching content closer to users decreases the distance and time required by requests.
 
 ### 7) Validation
 
