@@ -52,6 +52,24 @@ permalink: /system-design/instagram/
 
 ### 3) Data Model & Storage
 
+**API**
+
+```text
+createPost(userId, image, title, createdAt)
+```
+
+```text
+followUser(followerId, followeeId)
+```
+
+```text
+searchPostByTitle(userId, queryString)
+```
+
+```text
+generateFeed(userId, created_at)
+```
+
 **Entities and relationships**
 - Users
 - Images

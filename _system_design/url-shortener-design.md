@@ -43,19 +43,18 @@ permalink: /system-design/url-shortener/
 
 ### 3) Data Model & Storage
 
+**API**
+
+```text
+createUrlAlias(url, short_code, createdAt)
+```
+
+```text
+getRedirect(short_code)
+```
+
 **Entities and relationships**
 - Long URLs mapped to shorter aliases
-
-**SQL schema**
-```sql
-CREATE TABLE mapped_links (
-    short_code VARCHAR(10) PRIMARY KEY UNIQUE,
-    original_url TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE INDEX idx_created_at ON mapped_links(created_at);
-```
 
 **Storage choices**
 - In-memory queue of candidate codes per key generation service instance
