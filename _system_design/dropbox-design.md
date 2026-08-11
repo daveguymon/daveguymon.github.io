@@ -29,6 +29,7 @@ permalink: /system-design/dropbox/
 
 **High-level architecture**
 
+![Dropbox Architecture Diagram]({{ '/assets/img/dropbox-diagram.png' | relative_url }})
 
 **Core components**
 
