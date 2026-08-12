@@ -96,10 +96,24 @@ updateFile(fileData, fileId, userId)
 ### 4) Request Flow
 
 **Sequence**
-
+- Client authenticates and sends upload request through the API Gateway / App UI to the Upload Service.
+- The data segmentation worker chunks the file data into blocks and submits them to a processing queue.
+- A worker retrieves the block data from the queue and stores them in a cloud block storage server.
+- Once all blocks are stored, a worker writes the file/blocks metadata in a relational database.
+- A listening service observes the committed metadata change and triggers a sync worker
+- The sync worker alerts a notification service, which pushes change notifications to a user's connected devices
+- A user performs a file query to view the contents of their file
+- The file query service checks with a cache for the assembled file.
+-On a cache miss it then reads meatadata from the file metadata database for the latest file contents
+- A block retrieval worker then references the metadata table to get all of the file's blobs from block storage
+- The blocks and metadata mapping are passed to an assembly service, which reconstructs the file with updated content and passes it back through the cache to the user who can view or download the file.
 
 **Where latency is controlled**
-
+- CDN
+- Query chaching
+- Block storage instead of file storage
+- Message queueing for processing block storage
+- Eventual consistency via semisynchronous replication
 
 **Failure handling**
 
@@ -141,7 +155,11 @@ updateFile(fileData, fileId, userId)
 ### 8) What I’d Improve Next
 
 **Next iteration**
-
+- Permission-based access
+- Sharable URL generation/revokation
+- File organization strategy
+- File deletion by owner
 
 **Risks to revisit**
-
+- File query service returning an assembled file vs a presigned CDN URL
+- Conflict detection
