@@ -32,24 +32,66 @@ permalink: /system-design/dropbox/
 ![Dropbox Architecture Diagram]({{ '/assets/img/dropbox-diagram.png' | relative_url }})
 
 **Core components**
-
+- Upload service
+- Data segmentation worker
+- Processing queue + workers
+- Metadata SQL database
+- Block/Cloud storage
+- Block retrieval worker + assembly service
+- Listening service + sync worker
+- Notification service
+- File query service
+- Cache + CDN
 
 **Design choice**
-
+- Use block storage with data segmentation and assembly for management of diff-based blobs while utilizing a SQL-based metadata solution for mapping blocks to files along with versioning
 
 ### 3) Data Model & Storage
 
 **API**
 
+```text
+uploadFile(fileData, fileId, userId)
+```
+
+```text
+getFileMetadata(fileId, userId)
+```
+
+```text
+getChanges(userId, sinceToken)
+```
+
+```text
+downloadFile(fileId, userId)
+```
+
+```text
+updateFile(fileData, fileId, userId)
+```
 
 **Entities and relationships**
+- User
+- Devices
+- Folder
+- Files
+- Blobs/blocks
+
+
+**Behavioral relationships**
+- Users access file storage from many devices
+- Users upload files to cloud folder
+- Files are segmented into blobs for block storage
 
 
 **Storage choices**
-
+- Block/cloud storage for file data
+- Relational database for file metadata 
+- In memory caching for reading assembled file data
+- CDNs for quick retrieval
 
 **Consistency strategy**
-
+- Eventual consistency using semi-synchronous replication
 
 ### 4) Request Flow
 
