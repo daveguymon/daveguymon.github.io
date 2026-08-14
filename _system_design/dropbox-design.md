@@ -116,19 +116,38 @@ updateFile(fileData, fileId, userId)
 - Eventual consistency via semisynchronous replication
 
 **Failure handling**
-
+- Prioritize availability
+- Retries with exponential backoff
+- Circuit breakers
+- Health checks for instance availability
+- Metrics and alerts for gradual degredation
 
 ### 5) Scalability & Reliability
 
 **Scaling plan**
-
+- Cloud-based block storage
+- In-line deduplication hash calculations
+- Partitioning metadata db via consistent hashing on fileId
 
 **SLO / monitoring**
-
+- Upload success rate: 99.9% of file uploads complete successfully without server-side retries or corruption.
+- File sync latency: 95% of file changes are visible on all synced devices within 60 seconds.
+- Download availability: 99.99% of file download requests succeed for users.
+- Metadata read latency: 99% of file metadata reads return in under 200 ms under normal load.
+- Data durability: 99.999% of stored blocks remain retrievable over a 1-year period with replication and checksum validation.
 
 ### 6) Key Tradeoffs
+- **Decision:** Cloud block storage instead of file storage
+  - **Why:** Allows for updating file changes by chunks rather than storing an entire file for small changes
+  - **Impact:** Better storage utilization
 
+- **Decision:** Utilizing a processing queue for segmented file storage upload
+  - **Why:** Enables parallel processing of data blocks to storage
+  - **Impact:** Reduces latency
 
+- **Decision:** Incorporating CDN and in-memory caching around the file query service
+  - **Why:** Returns unchanged files without wasting time and compute on block retrieval and assembly
+  - **Impact:** Speeds up reads of unchanged files
 
 ### 7) Validation
 
@@ -146,7 +165,6 @@ updateFile(fileData, fileId, userId)
 - Downloads per second: 1,000
 - Download bandwidth: 100 MB/second
 - Connections per minute: 1 million
-
 
 **Assumptions**
 - Average file upload speed of 20 MB/second
