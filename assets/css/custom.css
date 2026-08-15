@@ -1,3 +1,17 @@
+.wrapper {
+  width: min(1180px, calc(100vw - 60px));
+}
+
+header {
+  width: 320px;
+}
+
+section {
+  width: min(720px, calc(100% - 360px));
+  box-sizing: border-box;
+  padding-left: 18px;
+}
+
 .collection-nav {
   margin-top: 1.5rem;
   padding-top: 1rem;
@@ -33,4 +47,25 @@
 .collection-nav a:focus {
   color: #069;
   border-bottom-color: transparent;
+}
+
+@media print, screen and (max-width: 960px) {
+  .wrapper {
+    width: auto;
+  }
+
+  header,
+  section {
+    width: auto;
+  }
+
+  section {
+    padding-left: 0;
+  }
+}
+
+@media print, screen and (max-width: 720px) {
+  body {
+    padding: 20px;
+  }
 }
