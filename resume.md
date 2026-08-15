@@ -4,61 +4,92 @@ title: Resume
 permalink: /
 ---
 
-## Professional Summary
+## **Dave Guymon**
 
-Operations-focused Engineering Manager with 9+ years building and enabling high-performing hybrid/distributed teams. Balances technical guidance with people management—translating product strategy into delivery execution through strong partnerships, clear expectations, coaching, and predictable cadence. Proven track record in hiring, developing, and empowering teams, improving delivery reliability, driving operational improvements, and enabling scalable technical decisions.
+delivertodave@duck.com | linkedin.com/in/daveguymon | daveguymon.github.io | (801) 995-0359
 
-## Core Skills
+***
 
-### Leadership & Culture
-- Hiring, performance management, and coaching; EQ-driven 1:1s  
-- Psychological safety through listening, clear expectations, and constructive feedback  
-- Led teams (4–11; dev + QA) in hybrid/distributed environments  
+## **Professional Summary**
 
-### Delivery & Operations
-- Agile/Scrum operating cadence (bi-weekly planning, grooming, retros, demos)  
-- OKRs/SMART goals with data-driven delivery outcomes (on-time delivery; regression rate)  
-- Operational improvements: SCRUM adoption, reduced review latency, runbooks  
+Engineering Manager with 8+ years building technical credibility across QA, full-stack development, and team leadership. Proven track record scaling high-performing remote teams while systematically improving engineering velocity and processes. At Reputation, led process improvements that enabled the delivery of 5 AI-powered products. Skilled in system design, spec-driven development, and mentoring engineers through complex technical challenges. Passionate about bridging engineering rigor with business impact.
 
-### Technical & Architecture
-- System design and architectural decision-making (design reviews; distributed systems)  
-- Spec-Driven Development: planning → PR creation; test generation + documentation automation  
-- API/data platform design; microservices; internal tooling ownership  
+***
 
-## Professional Experience
+## Technical Skills
 
-### Reputation — Senior Engineering Manager
-**May 2025 – Present | Remote**
-- Scaled product delivery: Coached and enabled an underperforming 8-person team to establish consistent Scrum operating cadence, strengthening execution and delivery.
-- Led AI product execution: Delivered 5 AI-powered applications within a single calendar year by aligning engineering scope to product priorities, guiding architecture decisions, and ensuring reliable releases.
-- Improved delivery predictability: Implemented sprint-capacity planning and scoping to commit to work the team could confidently deliver within a two-week sprint window.
-- Managed distributed delivery + alignment: Onboarded and led 3 international contractors for a 9-month critical project, integrating them into Agile ceremonies while bridging engineering and product to manage technical debt and scalable releases.
+**Languages & Frameworks:** JavaScript, Ruby on Rails, Elixir — code review, debugging, and small feature development; experienced mentoring engineers on code quality and architectural patterns
 
-### SmartRent — Senior Engineering Manager
-**January 2024 – May 2025 | Remote**
-- Rebuilt team culture: Transformed a disengaged, distrustful engineering team into a high-trust, feedback-driven unit within 12 months by setting expectations, coaching through conflict, and reinforcing psychological safety.
-- Strengthened remote team cohesion: Introduced structured remote rituals (weekly virtual socials, real-time recognition, and conflict-resolution frameworks), improving morale and team alignment.
-- Accelerated talent development: Facilitated promotions for 8/9 team members in one year by building clear career pathways, instituting structured mentorship, and running a weekly “Career Growth Forum.”
+**System Design & Architecture:** High-level architecture design, microservices, distributed systems, event-driven architecture, caching strategies, database design and trade-offs, API design
 
-### MX — Software Engineer Lead/Manager
-**December 2019 – January 2024 | Lehi, UT (Hybrid)**
-- Led Agile transformation: Guided a hybrid team of 10 engineers through Agile adoption, improving productivity and continuous improvement across 3 major product initiatives.
-- Improved engagement and team health: Implemented people-first 1:1 mentorship and open communication practices, moving eNPS from negative to positive within months.
-- Coached delivery leadership: Coached technical leads and Scrum Masters, driving a sustained 10% QoQ improvement in sprint velocity while maintaining on-time, on-budget milestones.
+**Development Methodologies:** Spec-Driven Development (GitHub Spec Kit), technical documentation, code review leadership, continuous improvement practices
 
-### MX — Quality Assurance Engineer
-**October 2017 – December 2019**
-- Ensured engineering quality: Designed and executed test strategies for web applications, REST APIs, and backend services in a distributed microservices architecture to support high-quality releases.
+**Other:** API testing (Postman), quality assurance strategy, cross-functional technical collaboration, Agile/Scrum
 
-### Idaho Department of Ed — Educator & Instructional Technology Coach
-**Aug 2010 – Jul 2017 | Idaho**
-- Scaled access & adoption: Spearheaded a 1:1 laptop initiative, providing digital access to 13,000+ students across 25 schools through training, enablement, and program operations.
-- Data-driven improvement & coaching: Designed and adapted instructional approaches and individualized learning plans, using student performance data to drive measurable achievement gains.
+***
 
-## Education & Certifications
+## **Core Skills**
 
-- Google Project Management (Coursera) — Mar 2024 (Online)
-- Certified ScrumMaster (CSM), Scrum Alliance — Jun 2023 (Lehi, UT)
-- Web Development Certificate, DevMountain — Sep 2017 (Provo, UT)
-- M.A. Education Technology, Boise State University — Jun 2015 (Online)
-- B.S. Elementary Education, Brigham Young University–Idaho — Jun 2010 (Rexburg, ID)
+**Leadership & Team Development**
+
+- Hiring and mentorship of remote engineering teams
+- Performance management and career development coaching
+- Building cultures of ownership, accountability, and continuous improvement
+
+**Communication & Collaboration**
+
+- Cross-functional partnership with product, design, and executive stakeholders
+- Technical translation between engineering and non-technical audiences
+- Clear documentation and specification writing
+
+**Operations & Delivery**
+
+- Engineering roadmap planning aligned with business objectives
+- Process optimization for velocity (CI/CD, code review workflows, testing automation)
+- Balancing technical debt with feature delivery
+
+***
+
+## **Professional Experience**
+
+**Reputation — Senior Engineering Manager** | May 2025 – Present | Remote
+
+- **Shipped 5 AI-powered products in 12 months** by implementing continuous improvement practices (streamlined code review, testing automation, spec-driven development), driving 40%+ acceleration in feature delivery and establishing governance frameworks for responsible agentic AI.
+- **Built AI engineering capability** through mentorship, architectural guidance, and hands-on code reviews in Node.js.
+
+**SmartRent — Senior Engineering Manager** | January 2024 – May 2025 | Remote
+
+- **Transformed team culture in 12 months** from disengaged to high-trust by introducing psychological safety frameworks and structured remote rituals (weekly socials, real-time recognition). Result: 89% promotion rate (8/9 team members) and 40%+ increase in remote pair programming post on-site.
+- **Scaled engineering capability** across 9 distributed Elixir engineers through architectural guidance, structured mentorship, and career growth coaching.
+
+**MX — Software Engineer Lead/Manager** | December 2019 – January 2024 | Lehi, UT (Hybrid)
+
+- **Led Agile transformation across 10-person Ruby on Rails team** spanning 3 major product initiatives, establishing ceremonies, retrospectives, and continuous improvement practices that increased team productivity and deployment frequency.
+- **Transformed team engagement:** Moved eNPS from negative to positive within 6 months by implementing structured 1:1 mentorship, open communication frameworks, and people-first leadership practices.
+- **Coached technical leads and Scrum Masters to drive sustained 10% QoQ sprint velocity improvement** while maintaining on-time, on-budget delivery across all product milestones.
+
+**MX — Quality Assurance Engineer***&#32;| October 2017 – December 2019*
+
+- **Designed and executed comprehensive test strategies** for web applications and REST APIs across microservices; achieved 100% API endpoint test coverage using Postman test suites with comprehensive assertions (expected return values, HTTP statuses, error handling), reducing bug escape rates.
+
+**Idaho Department of Ed — Educator & Instructional Technology Coach** | Aug 2010 – Jul 2017 (Idaho)
+
+- **Spearheaded 1:1 laptop initiative** providing digital access to 13,000+ students across 25 schools, designing and delivering comprehensive teacher training, student enablement programs, and program operations to ensure adoption and sustained usage.
+- **Designed and adapted individualized learning plans** using student performance data and assessment results to drive measurable achievement gains; coached teachers on evidence-based instructional strategies and technology integration.
+
+***
+
+## **Education & Certifications**
+
+**Master of Arts, Education Technology** — Boise State University | June 2015
+
+**Bachelor of Science, Elementary Education** — Brigham Young University–Idaho | June 2010
+
+**Certifications:**
+
+- **Google Project Management Certificate** (Coursera) | March 2024
+- **Certified Scrum Master (CSM)**, Scrum Alliance | June 2023
+
+**Professional Development:**
+
+- **Web Development Certificate**, DevMountain | September 2017
